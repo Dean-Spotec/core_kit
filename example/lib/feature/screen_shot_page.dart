@@ -61,13 +61,13 @@ class _ScreenShotPageState extends State<ScreenShotPage> {
   }
 
   /// 对不在widget树中的widget进行截屏
-  Future<void> _saveWidgetOutTreeToGallery() async {
+  void _saveWidgetOutTreeToGallery() {
     final image = Container(
       padding: const EdgeInsets.all(10),
       color: Colors.red,
       child: Image.asset(R.img1, width: 200),
     );
-    await ImageHandler().saveWidgetOutTreeToGallery(
+    ImageHandler().saveInvisibleScreenshotToGallery(
       widget: image,
       successHint: '保存成功',
       failHint: '保存失败',
