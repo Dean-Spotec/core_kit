@@ -1,4 +1,5 @@
 import 'package:core_kit/singleton.dart';
+import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'common/view/hud/hud_loading_view.dart';
@@ -45,7 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
+    final scaffold = CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(widget.title),
       ),
@@ -63,6 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
+    );
+    return CornerBanner(
+      message: 'CUSTOM',
+      show: true,
+      location: BannerLocation.topStart,
+      child: scaffold,
     );
   }
 

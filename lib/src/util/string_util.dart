@@ -5,19 +5,87 @@ import 'package:decimal/decimal.dart';
 import 'package:intl/intl.dart';
 
 class StringUtil {
-  /// 根据规定小数点格式化为金融数值
+  /// 根据规定小数点格式化为普通数值
   /// - [needNumSign] 是否需要+、-号
-  static String numToFinancial(
+  static String numToNormal(
     num? number,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     String defaultValue = '-',
   }) {
     if (number == null) {
       return defaultValue;
     }
-    final format = NumberFormat('#,##0', 'en-US');
+    // 0 A single digit
+    // # A single digit, omitted if the value is zero
+    final format = NumberFormat('0.#', locale);
+    format.maximumFractionDigits = maxDigits;
+    format.minimumFractionDigits = minDigits;
+    final result = format.format(number);
+    if (needNumSign && number > 0) {
+      return '${format.symbols.PLUS_SIGN}$result';
+    } else {
+      return result;
+    }
+  }
+
+  /// 根据规定小数点格式化为普通数值
+  /// - [needNumSign] 是否需要+、-号
+  static String stringToNormal(
+    String? string,
+    int maxDigits, {
+    int minDigits = 0,
+    String? locale,
+    bool needNumSign = false,
+    String defaultValue = '-',
+  }) {
+    final result = double.tryParse(string ?? '');
+    return numToNormal(
+      result,
+      maxDigits,
+      minDigits: minDigits,
+      locale: locale,
+      needNumSign: needNumSign,
+      defaultValue: defaultValue,
+    );
+  }
+
+  /// 根据规定小数点格式化为普通数值
+  /// - [needNumSign] 是否需要+、-号
+  static String decimalToNormal(
+    Decimal? decimal,
+    int maxDigits, {
+    int minDigits = 0,
+    String? locale,
+    bool needNumSign = false,
+    String defaultValue = '-',
+  }) {
+    return stringToNormal(
+      decimal?.toString(),
+      maxDigits,
+      minDigits: minDigits,
+      locale: locale,
+      needNumSign: needNumSign,
+      defaultValue: defaultValue,
+    );
+  }
+
+  /// 根据规定小数点格式化为金融数值
+  /// - [needNumSign] 是否需要+、-号
+  static String numToFinancial(
+    num? number,
+    int maxDigits, {
+    int minDigits = 0,
+    String? locale,
+    bool needNumSign = false,
+    String defaultValue = '-',
+  }) {
+    if (number == null) {
+      return defaultValue;
+    }
+    final format = NumberFormat.decimalPattern(locale);
     format.maximumFractionDigits = maxDigits;
     format.minimumFractionDigits = minDigits;
     final result = format.format(number);
@@ -34,6 +102,7 @@ class StringUtil {
     String? string,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     String defaultValue = '-',
   }) {
@@ -42,6 +111,7 @@ class StringUtil {
       result,
       maxDigits,
       minDigits: minDigits,
+      locale: locale,
       needNumSign: needNumSign,
       defaultValue: defaultValue,
     );
@@ -53,6 +123,7 @@ class StringUtil {
     Decimal? decimal,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     String defaultValue = '-',
   }) {
@@ -60,6 +131,7 @@ class StringUtil {
       decimal?.toString(),
       maxDigits,
       minDigits: minDigits,
+      locale: locale,
       needNumSign: needNumSign,
       defaultValue: defaultValue,
     );
@@ -72,6 +144,7 @@ class StringUtil {
     num? number,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     bool needPercentSign = true,
     String defaultValue = '-%',
@@ -79,12 +152,13 @@ class StringUtil {
     if (number == null) {
       return defaultValue;
     }
-    final format = NumberFormat('#.#%', 'en-US');
+    final format = NumberFormat.percentPattern(locale);
     format.maximumFractionDigits = maxDigits;
     format.minimumFractionDigits = minDigits;
+    final rawResult = format.format(number);
     final result = needPercentSign
-        ? format.format(number)
-        : format.format(number).replaceAll('%', '');
+        ? rawResult
+        : rawResult.substring(0, rawResult.length - 1);
     if (needNumSign && number > 0) {
       return '+$result';
     } else {
@@ -99,6 +173,7 @@ class StringUtil {
     String? string,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     bool needPercentSign = true,
     String defaultValue = '-%',
@@ -108,6 +183,7 @@ class StringUtil {
       result,
       maxDigits,
       minDigits: minDigits,
+      locale: locale,
       needNumSign: needNumSign,
       needPercentSign: needPercentSign,
       defaultValue: defaultValue,
@@ -121,6 +197,7 @@ class StringUtil {
     Decimal? decimal,
     int maxDigits, {
     int minDigits = 0,
+    String? locale,
     bool needNumSign = false,
     String defaultValue = '-%',
     bool needPercentSign = true,
@@ -129,68 +206,9 @@ class StringUtil {
       decimal?.toString(),
       maxDigits,
       minDigits: minDigits,
+      locale: locale,
       needNumSign: needNumSign,
       needPercentSign: needPercentSign,
-      defaultValue: defaultValue,
-    );
-  }
-
-  /// 根据规定小数点格式化为普通数值
-  /// - [needNumSign] 是否需要+、-号
-  static String numToNormal(
-    num? number,
-    int maxDigits, {
-    int minDigits = 0,
-    bool needNumSign = false,
-    String defaultValue = '-',
-  }) {
-    if (number == null) {
-      return defaultValue;
-    }
-    final format = NumberFormat('0.#', 'en-US');
-    format.maximumFractionDigits = maxDigits;
-    format.minimumFractionDigits = minDigits;
-    final result = format.format(number);
-    if (needNumSign && number > 0) {
-      return '+$result';
-    } else {
-      return result;
-    }
-  }
-
-  /// 根据规定小数点格式化为普通数值
-  /// - [needNumSign] 是否需要+、-号
-  static String stringToNormal(
-    String? string,
-    int maxDigits, {
-    int minDigits = 0,
-    bool needNumSign = false,
-    String defaultValue = '-',
-  }) {
-    final result = double.tryParse(string ?? '');
-    return numToNormal(
-      result,
-      maxDigits,
-      minDigits: minDigits,
-      needNumSign: needNumSign,
-      defaultValue: defaultValue,
-    );
-  }
-
-  /// 根据规定小数点格式化为普通数值
-  /// - [needNumSign] 是否需要+、-号
-  static String decimalToNormal(
-    Decimal? decimal,
-    int maxDigits, {
-    int minDigits = 0,
-    bool needNumSign = false,
-    String defaultValue = '-',
-  }) {
-    return stringToNormal(
-      decimal?.toString(),
-      maxDigits,
-      minDigits: minDigits,
-      needNumSign: needNumSign,
       defaultValue: defaultValue,
     );
   }
