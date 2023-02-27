@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-/// 在CustomScrollView子视图中使用，在builder中的widget会吸附在顶部
+/// 做为CustomScrollView的子视图使用，在builder中的widget会吸附在顶部
 class StickySliverHeaderBuilder extends SliverPersistentHeaderDelegate {
   StickySliverHeaderBuilder({
     required this.maxHeight,

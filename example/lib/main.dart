@@ -25,11 +25,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      navigatorObservers: [FlutterSmartDialog.observer],
-      builder: FlutterSmartDialog.init(),
+    return CornerBanner(
+      message: 'CUSTOM',
+      show: true,
+      location: BannerLocation.topStart,
+      child: CupertinoApp(
+        title: 'Flutter Demo',
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        navigatorObservers: [FlutterSmartDialog.observer],
+        builder: FlutterSmartDialog.init(),
+      ),
     );
   }
 }
@@ -46,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final scaffold = CupertinoPageScaffold(
+    return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(widget.title),
       ),
@@ -64,12 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-    );
-    return CornerBanner(
-      message: 'CUSTOM',
-      show: true,
-      location: BannerLocation.topStart,
-      child: scaffold,
     );
   }
 

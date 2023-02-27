@@ -22,6 +22,8 @@ dependencies:
   connectivity_plus: ^3.0.3
   # 各种弹窗功能：hud、toast、dialog
   flutter_smart_dialog: ^4.8.2+4
+  # 路由库
+  auto_route: ^5.0.4
 
 dev_dependencies:
   flutter_test:
