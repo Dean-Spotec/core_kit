@@ -26,18 +26,18 @@ class Hud {
   /// - [successBuilder] 成功提示
   /// - [errorBuilder] 报错提示
   /// - [infoBuilder] 普通信息提示
-  void init({
+  static void init({
     Duration displayTime = const Duration(seconds: 2),
     HudLoadingBuilder? loadingBuilder,
     HudStatusBuilder? successBuilder,
     HudStatusBuilder? errorBuilder,
     HudStatusBuilder? infoBuilder,
   }) {
-    _displayTime = displayTime;
-    _loadingBuilder = loadingBuilder;
-    _successBuilder = successBuilder;
-    _errorBuilder = errorBuilder;
-    _infoBuilder = infoBuilder;
+    _instance._displayTime = displayTime;
+    _instance._loadingBuilder = loadingBuilder;
+    _instance._successBuilder = successBuilder;
+    _instance._errorBuilder = errorBuilder;
+    _instance._infoBuilder = infoBuilder;
   }
 
   Duration? _displayTime;

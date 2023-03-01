@@ -1,10 +1,12 @@
 // Author: Dean.Liu
 // DateTime: 2021/11/21 11:50
 
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:core_kit/singleton.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:screenshot/screenshot.dart';
@@ -17,6 +19,48 @@ class ImageHandler {
   ImageHandler._internal();
 
   static final ImageHandler _instance = ImageHandler._internal();
+
+  /// 压缩图片并保存，返回保存地址
+  /// - [file] 需要压缩的图片
+  /// - [targetPath] 压缩后图片保存的地址
+  /// - [minWidth] 压缩后的最小宽度
+  /// - [minHeight] 压缩后的最小高度
+  /// - [quality] 压缩质量
+  /// - [format] 压缩后图片的格式
+  /// - [maxByteSize] 压缩后图片最大byte大小
+  Future<File?> compressAndGetFile(
+    File file,
+    String targetPath, {
+    int minWidth = 1920,
+    int minHeight = 1080,
+    int quality = 95,
+    CompressFormat format = CompressFormat.jpeg,
+    int? maxByteSize,
+  }) async {
+    var result = await FlutterImageCompress.compressAndGetFile(
+      file.absolute.path,
+      targetPath,
+      minWidth: minWidth,
+      minHeight: minHeight,
+      quality: quality,
+      format: format,
+    );
+    // 如果设置了最大内存大小，则减小质量重复压缩
+    if (result != null &&
+        maxByteSize != null &&
+        result.lengthSync() > maxByteSize) {
+      result = await compressAndGetFile(
+        file,
+        targetPath,
+        minWidth: minWidth,
+        minHeight: minHeight,
+        quality: quality - 20,
+        format: format,
+        maxByteSize: maxByteSize,
+      );
+    }
+    return result;
+  }
 
   /// 对widget树外的widget截屏，并保存到相册
   /// - [widget] 需要截图的widget，其不在widget树中
@@ -38,7 +82,7 @@ class ImageHandler {
         Hud().show();
         final controller = ScreenshotController();
         final imageUnits = await controller.captureFromWidget(widget);
-        await _saveScreenshotToGallery(
+        await saveImageToGallery(
           imageUnits: imageUnits,
           successHint: successHint,
           failHint: failHint,
@@ -70,7 +114,7 @@ class ImageHandler {
       case PermissionStatus.granted:
         Hud().show();
         final imageUnits = await controller.capture();
-        await _saveScreenshotToGallery(
+        await saveImageToGallery(
           imageUnits: imageUnits,
           successHint: successHint,
           failHint: failHint,
@@ -83,7 +127,12 @@ class ImageHandler {
     }
   }
 
-  Future _saveScreenshotToGallery({
+  /// 保存图片到相册
+  /// - [imageUnits] 图片二进制数据
+  /// - [successHint] 保存成功的提示
+  /// - [failHint] 保存失败的提示
+  /// - [fileName] 截图的文件名
+  Future<AssetEntity?> saveImageToGallery({
     required Uint8List? imageUnits,
     required String successHint,
     required String failHint,
@@ -91,7 +140,7 @@ class ImageHandler {
   }) async {
     if (imageUnits == null) {
       Hud().showError(failHint);
-      return;
+      return null;
     }
     return PhotoManager.editor
         .saveImage(

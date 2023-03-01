@@ -15,12 +15,12 @@ class AppSize {
 
   /// 设置app级别的根context，才能获取到屏幕尺寸相关信息
   /// [tabBarHeight] 默认值为值_kTabBarHeight(50)
-  void init(
+  static void init(
     BuildContext context, {
     double? tabBarHeight,
   }) {
-    _queryData = MediaQuery.of(context);
-    _tabBarHeight = tabBarHeight;
+    _instance._queryData = MediaQuery.of(context);
+    _instance._tabBarHeight = tabBarHeight;
   }
 
   /// 屏幕相关信息

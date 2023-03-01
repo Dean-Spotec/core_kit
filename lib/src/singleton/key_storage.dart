@@ -16,8 +16,8 @@ class KeyStorage {
   SharedPreferences? _spf;
 
   /// 初始化SharedPreferences类，异步函数
-  Future<SharedPreferences?> init() async {
-    return _spf = await SharedPreferences.getInstance();
+  static Future<SharedPreferences?> init() async {
+    return _instance._spf = await SharedPreferences.getInstance();
   }
 
   /// 所有的key

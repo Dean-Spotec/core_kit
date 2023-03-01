@@ -25,16 +25,16 @@ class Toast {
   /// - [displayType] toast堆栈如何调度显示
   /// - [alignment] toast对齐方式
   /// - [toastBuilder] toast视图
-  void init({
+  static void init({
     Duration? displayTime,
     SmartToastType? displayType = SmartToastType.last,
     AlignmentGeometry? alignment,
     ToastBuilder? toastBuilder,
   }) {
-    _displayTime = displayTime;
-    _displayType = displayType;
-    _alignment = alignment;
-    _toastBuilder = toastBuilder;
+    _instance._displayTime = displayTime;
+    _instance._displayType = displayType;
+    _instance._alignment = alignment;
+    _instance._toastBuilder = toastBuilder;
   }
 
   /// 显示toast
