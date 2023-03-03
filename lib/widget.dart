@@ -6,3 +6,5 @@ export 'src/widget/apple_button.dart';
 export 'src/widget/blur.dart';
 export 'src/widget/corner_banner.dart';
 export 'src/widget/input_decimal_formatter.dart';
+export 'src/widget/web_view/web_progress_bar.dart';
+export 'src/widget/web_view/base_web_view.dart';

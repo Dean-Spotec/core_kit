@@ -2,6 +2,7 @@
 class R {
   R._();
 
+  static const String htmlString = 'assets/file/htmlString.html';
   static const String hudError = 'assets/image/hud_error.png';
   static const String hudInfo = 'assets/image/hud_info.png';
   static const String hudSuccess = 'assets/image/hud_success.png';

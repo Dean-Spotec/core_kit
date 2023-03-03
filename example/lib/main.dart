@@ -7,6 +7,7 @@ import 'common/view/hud/hud_status_view.dart';
 import 'common/view/toast_view.dart';
 import 'feature/compress_media_page.dart';
 import 'feature/screen_shot_page.dart';
+import 'feature/web_view_page.dart';
 import 'r.dart';
 
 void main() {
@@ -70,6 +71,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('压缩'),
                 onTap: () {
                   _pushPage(const CompressMediaPage());
+                },
+              ),
+              CupertinoListTile(
+                title: const Text('加载Url网页'),
+                onTap: () {
+                  final urlWebPage = WebViewPage(
+                    loadContent: (c) {
+                      c.loadRequest(Uri.parse('https://www.baidu.com/'));
+                    },
+                  );
+                  _pushPage(urlWebPage);
+                },
+              ),
+              CupertinoListTile(
+                title: const Text('加载Html网页'),
+                onTap: () {
+                  final urlWebPage = WebViewPage(
+                    loadContent: (c) {
+                      c.loadFlutterAsset(R.htmlString);
+                    },
+                  );
+                  _pushPage(urlWebPage);
                 },
               ),
             ],

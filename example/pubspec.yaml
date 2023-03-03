@@ -67,6 +67,8 @@ flutter:
 
   assets:
     - assets/image/
+    - assets/icon/
+    - assets/file/
 
 flutter_assets_generator:
   # Optional. Sets the directory of generated localization files. Provided value should be a valid path on lib dir. Default: generated

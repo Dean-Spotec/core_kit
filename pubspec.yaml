@@ -24,6 +24,8 @@ dependencies:
   flutter_smart_dialog: ^4.8.2+4
   # 路由库
   auto_route: ^5.0.4
+  # 网页
+  webview_flutter: ^4.0.5
 
 dev_dependencies:
   flutter_test:
