@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
+import '../common/view/ex_navigation_bar.dart';
 import '../kit/image_handler.dart';
 import '../r.dart';
 
@@ -21,8 +22,8 @@ class _ScreenShotPageState extends State<ScreenShotPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('截屏'),
+      navigationBar: ExNavigationBar(
+        middle: const Text('截屏'),
       ),
       child: SafeArea(
         child: Column(

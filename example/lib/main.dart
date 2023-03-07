@@ -63,8 +63,14 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               CupertinoListTile(
                 title: const Text('截屏'),
-                onTap: () {
-                  _pushPage(const ScreenShotPage());
+                onTap: () async {
+                  Hud().show();
+                  await Future.delayed(Duration(seconds: 1));
+                  Hud().dismiss();
+                  Hud().show();
+                  await Future.delayed(Duration(seconds: 2));
+                  Hud().dismiss();
+                  // _pushPage(const ScreenShotPage());
                 },
               ),
               CupertinoListTile(
