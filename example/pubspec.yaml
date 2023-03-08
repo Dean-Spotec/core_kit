@@ -45,6 +45,8 @@ dependencies:
   path_provider: ^2.0.12
   # 时区
   timezone: ^0.9.1
+  # AE动画
+  lottie: ^2.2.0
 
   core_kit:
     path: ../
@@ -69,6 +71,7 @@ flutter:
     - assets/image/
     - assets/icon/
     - assets/file/
+    - assets/lottie/
 
 flutter_assets_generator:
   # Optional. Sets the directory of generated localization files. Provided value should be a valid path on lib dir. Default: generated

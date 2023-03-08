@@ -9,6 +9,7 @@ class R {
   static const String img1 = 'assets/image/img1.png';
   static const String img2 = 'assets/image/img2.png';
   static const String img3 = 'assets/image/img3.png';
+  static const String loadingIndicator = 'assets/lottie/loading_indicator.json';
   static const String navBack = 'assets/icon/nav_back.png';
   static const String navClose = 'assets/icon/nav_close.png';
 }
