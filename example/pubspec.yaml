@@ -47,6 +47,11 @@ dependencies:
   timezone: ^0.9.1
   # AE动画
   lottie: ^2.2.0
+  # 路由库
+  auto_route: ^5.0.4
+  # 打开url
+  url_launcher: ^6.1.10
+  get_it: ^7.2.0
 
   core_kit:
     path: ../
@@ -55,6 +60,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   lint: ^2.0.1
+  auto_route_generator: ^5.0.3
+  build_runner: ^2.3.3
 
   # For information on the generic Dart part of this file, see the
   # following page: https://dart.dev/tools/pub/pubspec

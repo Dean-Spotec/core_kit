@@ -4,7 +4,7 @@
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../r.dart';
+import '../../../r.dart';
 
 class ExBarPopButton extends AppBarPopButton {
   ExBarPopButton({

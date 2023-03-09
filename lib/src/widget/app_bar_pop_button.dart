@@ -6,7 +6,8 @@ import 'package:flutter/cupertino.dart';
 /// 路由返回按钮的类型
 enum PopButtonType {
   back,
-  close;
+  close,
+  none;
 }
 
 typedef PopButtonBuilder = Widget Function(
@@ -44,6 +45,9 @@ class AppBarPopButton extends StatefulWidget {
 class _AppBarPopButtonState extends State<AppBarPopButton> {
   @override
   Widget build(BuildContext context) {
+    if (widget.popType == PopButtonType.none) {
+      return const SizedBox.shrink();
+    }
     // 是否是关闭模块
     final popEntireModule = widget.popType == PopButtonType.close;
     final child = popEntireModule

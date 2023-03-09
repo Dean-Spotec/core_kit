@@ -4,8 +4,8 @@
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../common/view/ex_bar_pop_button.dart';
-import '../common/view/ex_navigation_bar.dart';
+import '../view/navigation/ex_bar_pop_button.dart';
+import '../view/navigation/ex_navigation_bar.dart';
 
 class WebViewPage extends StatefulWidget {
   const WebViewPage({
@@ -44,8 +44,6 @@ class _WebViewPageState extends State<WebViewPage> {
           ),
         ),
         progressNotifier: _progressNotifier,
-        progressValueColor: CupertinoColors.systemGreen,
-        progressBackgroundColor: CupertinoColors.systemBlue,
       ),
       child: BaseWebView(
         controller: _controller,
