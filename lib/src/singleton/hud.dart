@@ -48,14 +48,14 @@ class Hud {
 
   /// 显示loading状态，事件不可穿透
   Future<void> show({
-    String msg = '加载中...',
+    String? msg,
     SmartAnimationType? animationType,
     HudLoadingBuilder? loadingBuilder,
   }) async {
     await dismiss();
     final builder = loadingBuilder ?? _loadingBuilder;
     return SmartDialog.showLoading(
-      msg: msg,
+      msg: msg ?? 'Loading...',
       maskColor: Colors.transparent,
       builder: builder == null ? null : (context) => builder(context, msg),
     );

@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../common/view/ex_navigation_bar.dart';
 import '../kit/image_handler.dart';
 
 class CompressMediaPage extends StatefulWidget {
@@ -20,8 +21,8 @@ class _CompressMediaPageState extends State<CompressMediaPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('压缩资源'),
+      navigationBar: ExNavigationBar(
+        middle: const Text('压缩资源'),
       ),
       child: SafeArea(
         child: Column(

@@ -4,7 +4,7 @@
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../r.dart';
+import 'ex_bar_pop_button.dart';
 
 class ExNavigationBar extends CupertinoNavigationBar {
   ExNavigationBar({
@@ -22,22 +22,7 @@ class ExNavigationBar extends CupertinoNavigationBar {
     super.transitionBetweenRoutes,
     super.heroTag,
   }) : super(
-          leading: leading ??
-              AppBarPopButton(
-                popType: popType,
-                backIcon: Image.asset(
-                  R.navBack,
-                  color: CupertinoColors.systemBlue,
-                  width: 24,
-                  height: 24,
-                ),
-                closeIcon: Image.asset(
-                  R.navClose,
-                  color: CupertinoColors.systemBlue,
-                  width: 24,
-                  height: 24,
-                ),
-              ),
+          leading: leading ?? ExBarPopButton(popType: popType),
           padding: padding ?? EdgeInsetsDirectional.zero,
         );
 }

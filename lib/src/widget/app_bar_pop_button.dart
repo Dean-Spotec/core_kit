@@ -24,7 +24,7 @@ class AppBarPopButton extends StatefulWidget {
   final Widget? closeIcon;
   final EdgeInsetsGeometry? padding;
   final double? minSize;
-  final VoidCallback? onPopped;
+  final Function(PopButtonType)? popAction;
 
   const AppBarPopButton({
     super.key,
@@ -34,7 +34,7 @@ class AppBarPopButton extends StatefulWidget {
     this.closeIcon,
     this.padding = EdgeInsets.zero,
     this.minSize = kMinInteractiveDimensionCupertino,
-    this.onPopped,
+    this.popAction,
   });
 
   @override
@@ -51,10 +51,13 @@ class _AppBarPopButtonState extends State<AppBarPopButton> {
         : widget.backIcon ?? const Icon(CupertinoIcons.back);
     return CupertinoButton(
       onPressed: () {
-        popEntireModule
-            ? Navigator.of(context, rootNavigator: true).maybePop()
-            : Navigator.of(context).maybePop();
-        widget.onPopped?.call();
+        if (widget.popAction != null) {
+          widget.popAction!(widget.popType);
+        } else {
+          popEntireModule
+              ? Navigator.of(context, rootNavigator: true).maybePop()
+              : Navigator.of(context).maybePop();
+        }
       },
       color: widget.color,
       padding: widget.padding,

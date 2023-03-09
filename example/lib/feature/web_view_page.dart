@@ -4,7 +4,8 @@
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../r.dart';
+import '../common/view/ex_bar_pop_button.dart';
+import '../common/view/ex_navigation_bar.dart';
 
 class WebViewPage extends StatefulWidget {
   const WebViewPage({
@@ -28,18 +29,12 @@ class _WebViewPageState extends State<WebViewPage> {
     final navigator = Navigator.of(context);
     return CupertinoPageScaffold(
       navigationBar: WebProgressBar(
-        bar: CupertinoNavigationBar(
+        bar: ExNavigationBar(
           padding: EdgeInsetsDirectional.zero,
           middle: const Text('加载网页'),
-          leading: AppleButton(
-            padding: EdgeInsets.zero,
-            child: Image.asset(
-              R.navBack,
-              color: CupertinoColors.systemBlue,
-              width: 24,
-              height: 24,
-            ),
-            onPressed: () async {
+          leading: ExBarPopButton(
+            popType: PopButtonType.back,
+            popAction: (type) async {
               if (await _controller.canGoBack()) {
                 _controller.goBack();
               } else {
