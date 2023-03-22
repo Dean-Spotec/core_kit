@@ -24,6 +24,8 @@ dependencies:
   flutter_smart_dialog: ^4.8.2+4
   # 网页
   webview_flutter: ^4.0.5
+  # 网络图片
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

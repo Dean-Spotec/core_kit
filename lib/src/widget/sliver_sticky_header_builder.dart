@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 
 /// 做为CustomScrollView的子视图使用，在builder中的widget会吸附在顶部
-class StickySliverHeaderBuilder extends SliverPersistentHeaderDelegate {
-  StickySliverHeaderBuilder({
+class SliverStickyHeaderBuilder extends SliverPersistentHeaderDelegate {
+  SliverStickyHeaderBuilder({
     required this.maxHeight,
     required this.minHeight,
     required this.builder,
@@ -35,7 +35,7 @@ class StickySliverHeaderBuilder extends SliverPersistentHeaderDelegate {
   double get minExtent => minHeight;
 
   @override
-  bool shouldRebuild(covariant StickySliverHeaderBuilder oldDelegate) =>
+  bool shouldRebuild(covariant SliverStickyHeaderBuilder oldDelegate) =>
       maxHeight != oldDelegate.maxHeight ||
       minHeight != oldDelegate.minHeight ||
       builder != oldDelegate.builder;

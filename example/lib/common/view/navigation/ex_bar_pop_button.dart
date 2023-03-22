@@ -1,10 +1,12 @@
 // Author: Dean.Liu
 // DateTime: 2023/03/08 21:36
 
+import 'package:core_kit/singleton.dart';
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../r.dart';
+import '../../theme/ex_theme.dart';
 
 class ExBarPopButton extends AppBarPopButton {
   ExBarPopButton({
@@ -14,13 +16,13 @@ class ExBarPopButton extends AppBarPopButton {
   }) : super(
           backIcon: Image.asset(
             R.navBack,
-            color: CupertinoColors.systemBlue,
+            color: ExTheme.of(Context().navigatorContext).primaryColor,
             width: 24,
             height: 24,
           ),
           closeIcon: Image.asset(
             R.navClose,
-            color: CupertinoColors.systemBlue,
+            color: ExTheme.of(Context().navigatorContext).primaryColor,
             width: 24,
             height: 24,
           ),

@@ -30,5 +30,8 @@ part 'app_router.gr.dart';
     CupertinoRoute(page: WebViewPage),
   ],
 )
+
 // extend the generated private router
-class AppRouter extends _$AppRouter {}
+class AppRouter extends _$AppRouter {
+  AppRouter(super.navigatorKey);
+}

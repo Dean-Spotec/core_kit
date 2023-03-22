@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import '../../common/view/navigation/ex_navigation_bar.dart';
 import '../media/media_section.dart';
 import '../route/route_section.dart';
+import '../theme/theme_section.dart';
 import '../web_view/web_view_section.dart';
 
 class PluginPage extends StatefulWidget {
@@ -29,6 +30,7 @@ class _PluginPageState extends State<PluginPage> {
       child: ListView(
         children: const [
           RouteSection(),
+          ThemeSection(),
           MediaSection(),
           WebViewSection(),
         ],

@@ -51,6 +51,8 @@ dependencies:
   auto_route: ^5.0.4
   # 打开url
   url_launcher: ^6.1.10
+  # 暗黑模式
+  adaptive_theme: ^3.2.0
   get_it: ^7.2.0
 
   core_kit:
