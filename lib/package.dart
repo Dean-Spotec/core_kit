@@ -2,4 +2,5 @@
 // DateTime: 2023/03/09 18:29
 
 export 'package:intl/intl.dart';
+export 'package:intl/intl_standalone.dart';
 export 'package:webview_flutter/webview_flutter.dart';

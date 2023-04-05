@@ -9,6 +9,7 @@ import '../common/page/web_view_page.dart';
 import '../feature/core/core_page.dart';
 import '../feature/media/compress_media_page.dart';
 import '../feature/media/screen_shot_page.dart';
+import '../feature/plugin/localization/localization_page.dart';
 import '../feature/plugin/plugin_page.dart';
 import '../feature/tab_page.dart';
 
@@ -28,6 +29,7 @@ part 'app_router.gr.dart';
     CupertinoRoute(page: ScreenShotPage),
     CupertinoRoute(page: CompressMediaPage),
     CupertinoRoute(page: WebViewPage),
+    CupertinoRoute(page: LocalizationPage),
   ],
 )
 

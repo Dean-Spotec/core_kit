@@ -4,5 +4,5 @@
 export 'src/singleton/app_size.dart';
 export 'src/singleton/context.dart';
 export 'src/singleton/hud.dart';
-export 'src/singleton/key_storage.dart';
+export 'src/singleton/sp_storage.dart';
 export 'src/singleton/toast.dart';

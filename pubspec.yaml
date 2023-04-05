@@ -13,7 +13,7 @@ dependencies:
   # 集合类强化
   collection: ^1.17.0
   # 国际化
-  intl: ^0.18.0
+  intl: ^0.17.0
   # 精度字符串
   decimal: ^2.3.2
   # 简单的本地存储
@@ -68,3 +68,5 @@ flutter:
 #
 # For details regarding fonts in packages, see
 # https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true

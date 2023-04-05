@@ -6,12 +6,12 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// 简单的本地存储工具类，基于shared_preferences
-class KeyStorage {
-  factory KeyStorage() => _instance;
+class SpStorage {
+  factory SpStorage() => _instance;
 
-  KeyStorage._internal();
+  SpStorage._internal();
 
-  static final KeyStorage _instance = KeyStorage._internal();
+  static final SpStorage _instance = SpStorage._internal();
 
   SharedPreferences? _spf;
 

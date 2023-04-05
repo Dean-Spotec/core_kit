@@ -19,12 +19,14 @@ class ExBarPopButton extends AppBarPopButton {
             color: ExTheme.of(Context().navigatorContext).primaryColor,
             width: 24,
             height: 24,
+            matchTextDirection: true,
           ),
           closeIcon: Image.asset(
             R.navClose,
             color: ExTheme.of(Context().navigatorContext).primaryColor,
             width: 24,
             height: 24,
+            matchTextDirection: true,
           ),
         );
 }

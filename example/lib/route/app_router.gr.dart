@@ -46,6 +46,12 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    LocalizationRoute.name: (routeData) {
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: const LocalizationPage(),
+      );
+    },
     CoreRoute.name: (routeData) {
       return CupertinoPageX<dynamic>(
         routeData: routeData,
@@ -89,6 +95,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           WebViewRoute.name,
           path: '/web-view-page',
+        ),
+        RouteConfig(
+          LocalizationRoute.name,
+          path: '/localization-page',
         ),
       ];
 }
@@ -162,6 +172,18 @@ class WebViewRouteArgs {
   String toString() {
     return 'WebViewRouteArgs{key: $key, loadContent: $loadContent}';
   }
+}
+
+/// generated route for
+/// [LocalizationPage]
+class LocalizationRoute extends PageRouteInfo<void> {
+  const LocalizationRoute()
+      : super(
+          LocalizationRoute.name,
+          path: '/localization-page',
+        );
+
+  static const String name = 'LocalizationRoute';
 }
 
 /// generated route for
