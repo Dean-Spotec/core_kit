@@ -69,6 +69,116 @@ class S {
       args: [],
     );
   }
+
+  /// `下拉刷新`
+  String get pullDownToRefresh {
+    return Intl.message(
+      '下拉刷新',
+      name: 'pullDownToRefresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `释放立即刷新`
+  String get releaseToRefresh {
+    return Intl.message(
+      '释放立即刷新',
+      name: 'releaseToRefresh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新中...`
+  String get refreshing {
+    return Intl.message(
+      '刷新中...',
+      name: 'refreshing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新成功`
+  String get refreshSucceeded {
+    return Intl.message(
+      '刷新成功',
+      name: 'refreshSucceeded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新失败`
+  String get refreshFailed {
+    return Intl.message(
+      '刷新失败',
+      name: 'refreshFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `上拉加载`
+  String get pullUpToLoadMore {
+    return Intl.message(
+      '上拉加载',
+      name: 'pullUpToLoadMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `释放立即加载`
+  String get releaseToLoadMore {
+    return Intl.message(
+      '释放立即加载',
+      name: 'releaseToLoadMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载中...`
+  String get loading {
+    return Intl.message(
+      '加载中...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载成功`
+  String get loadSucceeded {
+    return Intl.message(
+      '加载成功',
+      name: 'loadSucceeded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `加载失败`
+  String get loadFailed {
+    return Intl.message(
+      '加载失败',
+      name: 'loadFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `没有更多`
+  String get noMore {
+    return Intl.message(
+      '没有更多',
+      name: 'noMore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

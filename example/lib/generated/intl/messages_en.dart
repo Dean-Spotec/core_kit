@@ -22,7 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "loadFailed": MessageLookupByLibrary.simpleMessage("Loading Failed"),
+        "loadSucceeded":
+            MessageLookupByLibrary.simpleMessage("Loading Succeeded"),
+        "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "localization": MessageLookupByLibrary.simpleMessage("Localization"),
+        "noMore": MessageLookupByLibrary.simpleMessage("No more"),
+        "pullDownToRefresh":
+            MessageLookupByLibrary.simpleMessage("Pull down to refresh"),
+        "pullUpToLoadMore":
+            MessageLookupByLibrary.simpleMessage("Pull up to load more"),
+        "refreshFailed": MessageLookupByLibrary.simpleMessage("Refresh Failed"),
+        "refreshSucceeded":
+            MessageLookupByLibrary.simpleMessage("Refresh Succeeded"),
+        "refreshing": MessageLookupByLibrary.simpleMessage("Refreshing..."),
+        "releaseToLoadMore":
+            MessageLookupByLibrary.simpleMessage("Release to load more"),
+        "releaseToRefresh":
+            MessageLookupByLibrary.simpleMessage("Release to refresh"),
         "save": MessageLookupByLibrary.simpleMessage("Save")
       };
 }

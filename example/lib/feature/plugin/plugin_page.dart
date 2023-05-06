@@ -9,11 +9,12 @@ import 'package:flutter/cupertino.dart';
 import '../../common/event/event_bus.dart';
 import '../../common/event/locale_changed_event.dart';
 import '../../common/view/navigation/ex_navigation_bar.dart';
-import '../media/media_section.dart';
-import '../route/route_section.dart';
 import '../theme/theme_section.dart';
 import '../web_view/web_view_section.dart';
 import 'localization/localization_section.dart';
+import 'media/media_section.dart';
+import 'refresh/refresh_section.dart';
+import 'route/route_section.dart';
 
 class PluginPage extends StatefulWidget {
   const PluginPage({super.key});
@@ -53,6 +54,7 @@ class _PluginPageState extends State<PluginPage> {
           LocalizationSection(),
           MediaSection(),
           WebViewSection(),
+          RefreshSection(),
         ],
       ),
     );

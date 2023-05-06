@@ -52,6 +52,12 @@ class _$AppRouter extends RootStackRouter {
         child: const LocalizationPage(),
       );
     },
+    RefreshRoute.name: (routeData) {
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: const RefreshPage(),
+      );
+    },
     CoreRoute.name: (routeData) {
       return CupertinoPageX<dynamic>(
         routeData: routeData,
@@ -99,6 +105,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           LocalizationRoute.name,
           path: '/localization-page',
+        ),
+        RouteConfig(
+          RefreshRoute.name,
+          path: '/refresh-page',
         ),
       ];
 }
@@ -184,6 +194,18 @@ class LocalizationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LocalizationRoute';
+}
+
+/// generated route for
+/// [RefreshPage]
+class RefreshRoute extends PageRouteInfo<void> {
+  const RefreshRoute()
+      : super(
+          RefreshRoute.name,
+          path: '/refresh-page',
+        );
+
+  static const String name = 'RefreshRoute';
 }
 
 /// generated route for

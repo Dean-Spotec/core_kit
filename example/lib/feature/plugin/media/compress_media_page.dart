@@ -7,8 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../common/view/navigation/ex_navigation_bar.dart';
-import '../../kit/image_handler.dart';
+import '../../../common/view/navigation/ex_navigation_bar.dart';
+import '../../../kit/image_handler.dart';
 
 class CompressMediaPage extends StatefulWidget {
   const CompressMediaPage({super.key});

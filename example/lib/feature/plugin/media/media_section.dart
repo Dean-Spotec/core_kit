@@ -4,7 +4,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../route/app_router.dart';
+import '../../../route/app_router.dart';
 
 class MediaSection extends StatelessWidget {
   const MediaSection({super.key});

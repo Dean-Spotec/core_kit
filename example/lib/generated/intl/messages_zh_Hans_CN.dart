@@ -22,7 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "loadFailed": MessageLookupByLibrary.simpleMessage("加载失败"),
+        "loadSucceeded": MessageLookupByLibrary.simpleMessage("加载成功"),
+        "loading": MessageLookupByLibrary.simpleMessage("加载中..."),
         "localization": MessageLookupByLibrary.simpleMessage("本地化"),
+        "noMore": MessageLookupByLibrary.simpleMessage("没有更多"),
+        "pullDownToRefresh": MessageLookupByLibrary.simpleMessage("下拉刷新"),
+        "pullUpToLoadMore": MessageLookupByLibrary.simpleMessage("上拉加载"),
+        "refreshFailed": MessageLookupByLibrary.simpleMessage("刷新失败"),
+        "refreshSucceeded": MessageLookupByLibrary.simpleMessage("刷新成功"),
+        "refreshing": MessageLookupByLibrary.simpleMessage("刷新中..."),
+        "releaseToLoadMore": MessageLookupByLibrary.simpleMessage("释放立即加载"),
+        "releaseToRefresh": MessageLookupByLibrary.simpleMessage("释放立即刷新"),
         "save": MessageLookupByLibrary.simpleMessage("保存")
       };
 }

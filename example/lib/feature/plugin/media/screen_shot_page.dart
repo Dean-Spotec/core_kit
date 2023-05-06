@@ -5,9 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../../common/view/navigation/ex_navigation_bar.dart';
-import '../../kit/image_handler.dart';
-import '../../r.dart';
+import '../../../common/view/navigation/ex_navigation_bar.dart';
+import '../../../kit/image_handler.dart';
+import '../../../r.dart';
 
 class ScreenShotPage extends StatefulWidget {
   const ScreenShotPage({super.key});
