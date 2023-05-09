@@ -6,6 +6,7 @@ import 'package:core_kit/package.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../common/page/web_view_page.dart';
+import '../feature/core/async/isolate_page.dart';
 import '../feature/core/core_page.dart';
 import '../feature/plugin/localization/localization_page.dart';
 import '../feature/plugin/media/compress_media_page.dart';
@@ -27,6 +28,7 @@ part 'app_router.gr.dart';
         CupertinoRoute(page: PluginPage),
       ],
     ),
+    CupertinoRoute(page: IsolatePage),
     CupertinoRoute(page: ScreenShotPage),
     CupertinoRoute(page: CompressMediaPage),
     CupertinoRoute(page: WebViewPage),

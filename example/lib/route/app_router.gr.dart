@@ -23,6 +23,12 @@ class _$AppRouter extends RootStackRouter {
         child: const TabPage(),
       );
     },
+    IsolateRoute.name: (routeData) {
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: const IsolatePage(),
+      );
+    },
     ScreenShotRoute.name: (routeData) {
       return CupertinoPageX<dynamic>(
         routeData: routeData,
@@ -91,6 +97,10 @@ class _$AppRouter extends RootStackRouter {
           ],
         ),
         RouteConfig(
+          IsolateRoute.name,
+          path: '/isolate-page',
+        ),
+        RouteConfig(
           ScreenShotRoute.name,
           path: '/screen-shot-page',
         ),
@@ -124,6 +134,18 @@ class TabRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TabRoute';
+}
+
+/// generated route for
+/// [IsolatePage]
+class IsolateRoute extends PageRouteInfo<void> {
+  const IsolateRoute()
+      : super(
+          IsolateRoute.name,
+          path: '/isolate-page',
+        );
+
+  static const String name = 'IsolateRoute';
 }
 
 /// generated route for

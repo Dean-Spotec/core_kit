@@ -5,6 +5,7 @@ import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../common/view/navigation/ex_navigation_bar.dart';
+import 'async/async_section.dart';
 
 class CorePage extends StatefulWidget {
   const CorePage({super.key});
@@ -23,7 +24,11 @@ class _CorePageState extends State<CorePage> {
         // 关闭hero动画，否则要和PluginPage的导航栏冲突
         transitionBetweenRoutes: false,
       ),
-      child: const Placeholder(),
+      child: ListView(
+        children: const [
+          AsyncSection(),
+        ],
+      ),
     );
   }
 }

@@ -28,7 +28,7 @@ class ImageHandler {
   /// - [quality] 压缩质量
   /// - [format] 压缩后图片的格式
   /// - [maxByteSize] 压缩后图片最大byte大小
-  Future<File?> compressAndGetFile(
+  Future<XFile?> compressAndGetFile(
     File file,
     String targetPath, {
     int minWidth = 1920,
@@ -48,7 +48,7 @@ class ImageHandler {
     // 如果设置了最大内存大小，则减小质量重复压缩
     if (result != null &&
         maxByteSize != null &&
-        result.lengthSync() > maxByteSize) {
+        await result.length() > maxByteSize) {
       result = await compressAndGetFile(
         file,
         targetPath,
