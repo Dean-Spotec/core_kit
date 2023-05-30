@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WebProgressBar extends StatelessWidget
-    with ObstructingPreferredSizeWidget {
+    implements ObstructingPreferredSizeWidget {
   const WebProgressBar({
     super.key,
     required this.bar,

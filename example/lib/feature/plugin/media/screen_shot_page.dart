@@ -1,6 +1,7 @@
 // Author: Dean.Liu
 // DateTime: 2023/02/10 17:12
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
@@ -9,6 +10,7 @@ import '../../../common/view/navigation/ex_navigation_bar.dart';
 import '../../../kit/image_handler.dart';
 import '../../../r.dart';
 
+@RoutePage()
 class ScreenShotPage extends StatefulWidget {
   const ScreenShotPage({super.key});
 

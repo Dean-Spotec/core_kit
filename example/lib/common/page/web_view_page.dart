@@ -1,12 +1,14 @@
 // Author: Dean.Liu
 // DateTime: 2023/03/01 15:04
 
+import 'package:auto_route/auto_route.dart';
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../view/navigation/ex_bar_pop_button.dart';
 import '../view/navigation/ex_navigation_bar.dart';
 
+@RoutePage()
 class WebViewPage extends StatefulWidget {
   const WebViewPage({
     super.key,

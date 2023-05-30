@@ -1,6 +1,7 @@
 // Author: Dean.Liu
 // DateTime: 2023/04/28 10:03
 
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../common/view/navigation/ex_navigation_bar.dart';
 import '../../../common/view/refresh/ex_refresh_header.dart';
 
+@RoutePage()
 class RefreshPage extends StatefulWidget {
   const RefreshPage({super.key});
 

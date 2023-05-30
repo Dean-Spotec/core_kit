@@ -3,11 +3,13 @@
 
 import 'dart:isolate';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../common/view/navigation/ex_navigation_bar.dart';
 
+@RoutePage()
 class IsolatePage extends StatefulWidget {
   const IsolatePage({super.key});
 

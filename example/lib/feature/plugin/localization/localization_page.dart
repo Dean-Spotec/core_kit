@@ -14,6 +14,7 @@ import '../../../common/event/locale_changed_event.dart';
 import '../../../common/view/navigation/ex_navigation_bar.dart';
 import '../../../generated/l10n.dart';
 
+@RoutePage()
 class LocalizationPage extends StatefulWidget {
   const LocalizationPage({super.key});
 

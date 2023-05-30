@@ -3,6 +3,7 @@
 
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,6 +17,7 @@ import 'media/media_section.dart';
 import 'refresh/refresh_section.dart';
 import 'route/route_section.dart';
 
+@RoutePage()
 class PluginPage extends StatefulWidget {
   const PluginPage({super.key});
 
@@ -23,8 +25,12 @@ class PluginPage extends StatefulWidget {
   State<PluginPage> createState() => _PluginPageState();
 }
 
-class _PluginPageState extends State<PluginPage> {
+class _PluginPageState extends State<PluginPage>
+    with AutomaticKeepAliveClientMixin {
   StreamSubscription? _localChangedSub;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -40,6 +46,7 @@ class _PluginPageState extends State<PluginPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CupertinoPageScaffold(
       navigationBar: ExNavigationBar(
         popType: PopButtonType.none,

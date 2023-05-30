@@ -18,7 +18,7 @@ class RouteSection extends StatelessWidget {
         CupertinoListTile(
           title: const Text('Path方式打开截屏页面'),
           onTap: () {
-            RemoteRouter().push('ex:///screen-shot-page');
+            RemoteRouter().push('ex:///screen-shot-route');
           },
         ),
         CupertinoListTile(

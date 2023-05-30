@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../common/theme/ex_theme.dart';
 import '../route/app_router.dart';
 
+@RoutePage()
 class TabPage extends StatefulWidget {
   const TabPage({super.key});
 
@@ -23,9 +24,10 @@ class _TabPageState extends State<TabPage> {
         CoreRoute(),
         PluginRoute(),
       ],
-      builder: (context, child, animation) {
+      builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
+          backgroundColor: ExTheme.of(context).barBackgroundColor,
           body: child,
           bottomNavigationBar: Theme(
             data: ThemeData(

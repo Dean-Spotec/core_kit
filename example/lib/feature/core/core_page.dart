@@ -1,12 +1,14 @@
 // Author: Dean.Liu
 // DateTime: 2023/03/09 11:01
 
+import 'package:auto_route/auto_route.dart';
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../common/view/navigation/ex_navigation_bar.dart';
 import 'async/async_section.dart';
 
+@RoutePage()
 class CorePage extends StatefulWidget {
   const CorePage({super.key});
 
@@ -14,9 +16,14 @@ class CorePage extends StatefulWidget {
   State<CorePage> createState() => _CorePageState();
 }
 
-class _CorePageState extends State<CorePage> {
+class _CorePageState extends State<CorePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CupertinoPageScaffold(
       navigationBar: ExNavigationBar(
         popType: PopButtonType.none,

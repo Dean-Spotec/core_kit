@@ -20,7 +20,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpStorage.init();
   await _loadSavedLocale();
-  GetIt.I.registerSingleton<AppRouter>(AppRouter(Context().navigatorKey));
+  GetIt.I.registerSingleton<AppRouter>(
+    AppRouter(navigatorKey: Context().navigatorKey),
+  );
   _initHud();
   Toast.init(toastBuilder: (context, msg) => ToastView(msg: msg));
   runApp(const MyApp());

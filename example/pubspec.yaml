@@ -54,7 +54,7 @@ dependencies:
   # AE动画
   lottie: ^2.3.2
   # 路由库
-  auto_route: ^5.0.4
+  auto_route: ^7.3.2
   # 打开url
   url_launcher: ^6.1.10
   # 暗黑模式
@@ -78,8 +78,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lint: ^2.0.1
-  auto_route_generator: ^5.0.3
+  lint: ^2.0.20
+  auto_route_generator: ^7.1.1
   build_runner: ^2.3.3
   intl_utils: ^2.8.2
   freezed: ^2.3.2

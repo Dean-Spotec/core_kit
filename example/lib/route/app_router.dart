@@ -17,27 +17,28 @@ import '../feature/tab_page.dart';
 
 part 'app_router.gr.dart';
 
-@CupertinoAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: [
-    CupertinoRoute(
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends _$AppRouter {
+  AppRouter({super.navigatorKey});
+
+  @override
+  RouteType get defaultRouteType => const RouteType.cupertino();
+
+  @override
+  final List<AutoRoute> routes = [
+    AutoRoute(
       path: '/',
-      page: TabPage,
+      page: TabRoute.page,
       children: [
-        CupertinoRoute(page: CorePage, initial: true),
-        CupertinoRoute(page: PluginPage),
+        AutoRoute(page: CoreRoute.page, initial: true),
+        AutoRoute(page: PluginRoute.page),
       ],
     ),
-    CupertinoRoute(page: IsolatePage),
-    CupertinoRoute(page: ScreenShotPage),
-    CupertinoRoute(page: CompressMediaPage),
-    CupertinoRoute(page: WebViewPage),
-    CupertinoRoute(page: LocalizationPage),
-    CupertinoRoute(page: RefreshPage),
-  ],
-)
-
-// extend the generated private router
-class AppRouter extends _$AppRouter {
-  AppRouter(super.navigatorKey);
+    AutoRoute(page: IsolateRoute.page),
+    AutoRoute(page: ScreenShotRoute.page),
+    AutoRoute(page: CompressMediaRoute.page),
+    AutoRoute(page: WebViewRoute.page),
+    AutoRoute(page: LocalizationRoute.page),
+    AutoRoute(page: RefreshRoute.page),
+  ];
 }

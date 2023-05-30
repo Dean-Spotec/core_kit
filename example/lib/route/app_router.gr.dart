@@ -1,50 +1,24 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 part of 'app_router.dart';
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    TabRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const TabPage(),
-      );
-    },
-    IsolateRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const IsolatePage(),
-      );
-    },
-    ScreenShotRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const ScreenShotPage(),
-      );
-    },
-    CompressMediaRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const CompressMediaPage(),
-      );
-    },
     WebViewRoute.name: (routeData) {
       final args = routeData.argsAs<WebViewRouteArgs>(
           orElse: () => const WebViewRouteArgs());
-      return CupertinoPageX<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WebViewPage(
           key: args.key,
@@ -52,124 +26,55 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    LocalizationRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const LocalizationPage(),
-      );
-    },
-    RefreshRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
-        routeData: routeData,
-        child: const RefreshPage(),
-      );
-    },
     CoreRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const CorePage(),
       );
     },
+    IsolateRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const IsolatePage(),
+      );
+    },
+    RefreshRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RefreshPage(),
+      );
+    },
     PluginRoute.name: (routeData) {
-      return CupertinoPageX<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const PluginPage(),
       );
     },
+    LocalizationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LocalizationPage(),
+      );
+    },
+    CompressMediaRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CompressMediaPage(),
+      );
+    },
+    ScreenShotRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ScreenShotPage(),
+      );
+    },
+    TabRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TabPage(),
+      );
+    },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(
-          TabRoute.name,
-          path: '/',
-          children: [
-            RouteConfig(
-              CoreRoute.name,
-              path: '',
-              parent: TabRoute.name,
-            ),
-            RouteConfig(
-              PluginRoute.name,
-              path: 'plugin-page',
-              parent: TabRoute.name,
-            ),
-          ],
-        ),
-        RouteConfig(
-          IsolateRoute.name,
-          path: '/isolate-page',
-        ),
-        RouteConfig(
-          ScreenShotRoute.name,
-          path: '/screen-shot-page',
-        ),
-        RouteConfig(
-          CompressMediaRoute.name,
-          path: '/compress-media-page',
-        ),
-        RouteConfig(
-          WebViewRoute.name,
-          path: '/web-view-page',
-        ),
-        RouteConfig(
-          LocalizationRoute.name,
-          path: '/localization-page',
-        ),
-        RouteConfig(
-          RefreshRoute.name,
-          path: '/refresh-page',
-        ),
-      ];
-}
-
-/// generated route for
-/// [TabPage]
-class TabRoute extends PageRouteInfo<void> {
-  const TabRoute({List<PageRouteInfo>? children})
-      : super(
-          TabRoute.name,
-          path: '/',
-          initialChildren: children,
-        );
-
-  static const String name = 'TabRoute';
-}
-
-/// generated route for
-/// [IsolatePage]
-class IsolateRoute extends PageRouteInfo<void> {
-  const IsolateRoute()
-      : super(
-          IsolateRoute.name,
-          path: '/isolate-page',
-        );
-
-  static const String name = 'IsolateRoute';
-}
-
-/// generated route for
-/// [ScreenShotPage]
-class ScreenShotRoute extends PageRouteInfo<void> {
-  const ScreenShotRoute()
-      : super(
-          ScreenShotRoute.name,
-          path: '/screen-shot-page',
-        );
-
-  static const String name = 'ScreenShotRoute';
-}
-
-/// generated route for
-/// [CompressMediaPage]
-class CompressMediaRoute extends PageRouteInfo<void> {
-  const CompressMediaRoute()
-      : super(
-          CompressMediaRoute.name,
-          path: '/compress-media-page',
-        );
-
-  static const String name = 'CompressMediaRoute';
 }
 
 /// generated route for
@@ -178,16 +83,20 @@ class WebViewRoute extends PageRouteInfo<WebViewRouteArgs> {
   WebViewRoute({
     Key? key,
     void Function(WebViewController)? loadContent,
+    List<PageRouteInfo>? children,
   }) : super(
           WebViewRoute.name,
-          path: '/web-view-page',
           args: WebViewRouteArgs(
             key: key,
             loadContent: loadContent,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'WebViewRoute';
+
+  static const PageInfo<WebViewRouteArgs> page =
+      PageInfo<WebViewRouteArgs>(name);
 }
 
 class WebViewRouteArgs {
@@ -207,49 +116,113 @@ class WebViewRouteArgs {
 }
 
 /// generated route for
-/// [LocalizationPage]
-class LocalizationRoute extends PageRouteInfo<void> {
-  const LocalizationRoute()
+/// [CorePage]
+class CoreRoute extends PageRouteInfo<void> {
+  const CoreRoute({List<PageRouteInfo>? children})
       : super(
-          LocalizationRoute.name,
-          path: '/localization-page',
+          CoreRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'LocalizationRoute';
+  static const String name = 'CoreRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [IsolatePage]
+class IsolateRoute extends PageRouteInfo<void> {
+  const IsolateRoute({List<PageRouteInfo>? children})
+      : super(
+          IsolateRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'IsolateRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [RefreshPage]
 class RefreshRoute extends PageRouteInfo<void> {
-  const RefreshRoute()
+  const RefreshRoute({List<PageRouteInfo>? children})
       : super(
           RefreshRoute.name,
-          path: '/refresh-page',
+          initialChildren: children,
         );
 
   static const String name = 'RefreshRoute';
-}
 
-/// generated route for
-/// [CorePage]
-class CoreRoute extends PageRouteInfo<void> {
-  const CoreRoute()
-      : super(
-          CoreRoute.name,
-          path: '',
-        );
-
-  static const String name = 'CoreRoute';
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [PluginPage]
 class PluginRoute extends PageRouteInfo<void> {
-  const PluginRoute()
+  const PluginRoute({List<PageRouteInfo>? children})
       : super(
           PluginRoute.name,
-          path: 'plugin-page',
+          initialChildren: children,
         );
 
   static const String name = 'PluginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LocalizationPage]
+class LocalizationRoute extends PageRouteInfo<void> {
+  const LocalizationRoute({List<PageRouteInfo>? children})
+      : super(
+          LocalizationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LocalizationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CompressMediaPage]
+class CompressMediaRoute extends PageRouteInfo<void> {
+  const CompressMediaRoute({List<PageRouteInfo>? children})
+      : super(
+          CompressMediaRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CompressMediaRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ScreenShotPage]
+class ScreenShotRoute extends PageRouteInfo<void> {
+  const ScreenShotRoute({List<PageRouteInfo>? children})
+      : super(
+          ScreenShotRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ScreenShotRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TabPage]
+class TabRoute extends PageRouteInfo<void> {
+  const TabRoute({List<PageRouteInfo>? children})
+      : super(
+          TabRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TabRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
