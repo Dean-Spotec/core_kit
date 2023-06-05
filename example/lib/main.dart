@@ -4,6 +4,7 @@ import 'package:core_kit/package.dart';
 import 'package:core_kit/singleton.dart';
 import 'package:core_kit/util.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 
 import 'common/const/sp_keys.dart';
@@ -25,7 +26,7 @@ Future<void> main() async {
   );
   _initHud();
   Toast.init(toastBuilder: (context, msg) => ToastView(msg: msg));
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 /// 加载本地保存的语言

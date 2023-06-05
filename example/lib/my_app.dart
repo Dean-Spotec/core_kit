@@ -18,6 +18,7 @@ import 'common/theme/ex_theme.dart';
 import 'common/tool/intl_tool.dart';
 import 'generated/l10n.dart';
 import 'route/app_router.dart';
+import 'route/router_observer.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -54,6 +55,7 @@ class _MyAppState extends State<MyApp> {
         theme: theme,
         routerDelegate: appRouter.delegate(
           navigatorObservers: () => [
+            RouterObserver(),
             FlutterSmartDialog.observer,
           ],
         ),

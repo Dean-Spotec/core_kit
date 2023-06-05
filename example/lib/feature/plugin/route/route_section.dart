@@ -3,8 +3,10 @@
 
 import 'dart:io';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../route/app_router.dart';
 import '../../../route/remote_router.dart';
 
 class RouteSection extends StatelessWidget {
@@ -16,7 +18,7 @@ class RouteSection extends StatelessWidget {
       header: const Text('路由'),
       children: [
         CupertinoListTile(
-          title: const Text('Path方式打开截屏页面'),
+          title: const Text('Path方式打开本地页面'),
           onTap: () {
             RemoteRouter().push('ex:///screen-shot-route');
           },
@@ -29,7 +31,7 @@ class RouteSection extends StatelessWidget {
           },
         ),
         CupertinoListTile(
-          title: const Text('Path方式打开短信'),
+          title: const Text('Path方式打开短信APP'),
           onTap: () {
             // Android、iOS都要配置sms权限：https://pub.dev/packages/url_launcher
             if (Platform.isAndroid) {
@@ -39,6 +41,12 @@ class RouteSection extends StatelessWidget {
               const url = 'sms:110&body=Hello World';
               RemoteRouter().push(url);
             }
+          },
+        ),
+        CupertinoListTile(
+          title: const Text('Present登录模块'),
+          onTap: () {
+            context.pushRoute(const UserAuthRoute());
           },
         ),
       ],

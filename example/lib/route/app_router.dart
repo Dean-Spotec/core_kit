@@ -13,6 +13,9 @@ import '../feature/plugin/media/compress_media_page.dart';
 import '../feature/plugin/media/screen_shot_page.dart';
 import '../feature/plugin/plugin_page.dart';
 import '../feature/plugin/refresh/refresh_page.dart';
+import '../feature/plugin/route/login_page.dart';
+import '../feature/plugin/route/register_page.dart';
+import '../feature/plugin/route/user_auth_page.dart';
 import '../feature/tab_page.dart';
 
 part 'app_router.gr.dart';
@@ -40,5 +43,13 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: WebViewRoute.page),
     AutoRoute(page: LocalizationRoute.page),
     AutoRoute(page: RefreshRoute.page),
+    AutoRoute(
+      page: UserAuthRoute.page,
+      fullscreenDialog: true,
+      children: [
+        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(page: RegisterRoute.page),
+      ],
+    ),
   ];
 }

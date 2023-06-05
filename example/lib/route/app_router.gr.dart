@@ -38,6 +38,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const IsolatePage(),
       );
     },
+    UserAuthRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UserAuthPage(),
+      );
+    },
     RefreshRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -72,6 +78,23 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const TabPage(),
+      );
+    },
+    RegisterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegisterPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: LoginPage(
+          key: args.key,
+          onLoginSuccess: args.onLoginSuccess,
+        ),
       );
     },
   };
@@ -139,6 +162,20 @@ class IsolateRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'IsolateRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserAuthPage]
+class UserAuthRoute extends PageRouteInfo<void> {
+  const UserAuthRoute({List<PageRouteInfo>? children})
+      : super(
+          UserAuthRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserAuthRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -225,4 +262,55 @@ class TabRoute extends PageRouteInfo<void> {
   static const String name = 'TabRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RegisterPage]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    Key? key,
+    void Function()? onLoginSuccess,
+    List<PageRouteInfo>? children,
+  }) : super(
+          LoginRoute.name,
+          args: LoginRouteArgs(
+            key: key,
+            onLoginSuccess: onLoginSuccess,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({
+    this.key,
+    this.onLoginSuccess,
+  });
+
+  final Key? key;
+
+  final void Function()? onLoginSuccess;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key, onLoginSuccess: $onLoginSuccess}';
+  }
 }
