@@ -4,12 +4,13 @@
 import 'package:flutter/cupertino.dart';
 
 class UserAuthNotifier extends ChangeNotifier {
-  bool _isAuthenticated = false;
+  bool _isLoggedIn = false;
 
-  bool get isAuthenticated => _isAuthenticated;
+  /// 用户是否已登录
+  bool get isLoggedIn => _isLoggedIn;
 
-  set isAuthenticated(bool value) {
-    _isAuthenticated = value;
+  set isLoggedIn(bool value) {
+    _isLoggedIn = value;
     notifyListeners();
   }
 }

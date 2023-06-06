@@ -5,7 +5,6 @@ import 'package:core_kit/singleton.dart';
 import 'package:core_kit/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 
 import 'common/const/sp_keys.dart';
 import 'common/tool/intl_tool.dart';
@@ -15,15 +14,11 @@ import 'common/view/toast_view.dart';
 import 'generated/l10n.dart';
 import 'my_app.dart';
 import 'r.dart';
-import 'route/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpStorage.init();
   await _loadSavedLocale();
-  GetIt.I.registerSingleton<AppRouter>(
-    AppRouter(navigatorKey: Context().navigatorKey),
-  );
   _initHud();
   Toast.init(toastBuilder: (context, msg) => ToastView(msg: msg));
   runApp(const ProviderScope(child: MyApp()));

@@ -6,19 +6,16 @@ import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../common/view/navigation/ex_navigation_bar.dart';
-import 'async/async_section.dart';
 
 @RoutePage()
-class CorePage extends StatefulWidget {
-  const CorePage({super.key, required this.onOpenDrawer});
-
-  final VoidCallback onOpenDrawer;
+class MinePage extends StatefulWidget {
+  const MinePage({super.key});
 
   @override
-  State<CorePage> createState() => _CorePageState();
+  State<MinePage> createState() => _MinePageState();
 }
 
-class _CorePageState extends State<CorePage>
+class _MinePageState extends State<MinePage>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
@@ -29,19 +26,11 @@ class _CorePageState extends State<CorePage>
     return CupertinoPageScaffold(
       navigationBar: ExNavigationBar(
         popType: PopButtonType.none,
-        middle: const Text('CoreKit'),
+        middle: const Text('我的'),
         // 关闭hero动画，否则要和PluginPage的导航栏冲突
         transitionBetweenRoutes: false,
-        leading: AppleButton(
-          onPressed: widget.onOpenDrawer,
-          child: const Icon(CupertinoIcons.person_circle),
-        ),
       ),
-      child: ListView(
-        children: const [
-          AsyncSection(),
-        ],
-      ),
+      child: const Placeholder(),
     );
   }
 }

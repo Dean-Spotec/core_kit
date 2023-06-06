@@ -6,7 +6,7 @@ import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../common/provider/user_auth_provider.dart';
+import '../../../common/tool/user_manager.dart';
 import '../../../common/view/navigation/ex_navigation_bar.dart';
 import '../../../route/app_router.dart';
 
@@ -37,18 +37,21 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           children: [
             CupertinoButton.filled(
               onPressed: () {
-                context.pushRoute(const RegisterRoute());
+                UserManager().login().then((isSuccess) {
+                  if (isSuccess) {
+                    context.router.root.pop();
+                    widget.onLoginSuccess?.call();
+                  }
+                });
               },
-              child: const Text('Push注册页面'),
+              child: const Text('登录'),
             ),
             const SizedBox(height: 10),
             CupertinoButton.filled(
               onPressed: () {
-                ref.read(userAuthProvider.notifier).state = true;
-                context.router.root.pop();
-                widget.onLoginSuccess?.call();
+                context.pushRoute(const RegisterRoute());
               },
-              child: const Text('登录'),
+              child: const Text('Push注册页面'),
             ),
           ],
         ),

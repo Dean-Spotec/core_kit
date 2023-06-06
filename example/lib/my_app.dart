@@ -10,29 +10,35 @@ import 'package:core_kit/util.dart';
 import 'package:core_kit/widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 
 import 'common/event/event_bus.dart';
 import 'common/event/locale_changed_event.dart';
 import 'common/theme/ex_theme.dart';
 import 'common/tool/intl_tool.dart';
+import 'common/tool/user_manager.dart';
 import 'generated/l10n.dart';
 import 'route/app_router.dart';
 import 'route/router_observer.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  ConsumerState<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends ConsumerState<MyApp> {
   StreamSubscription? _localChangedSub;
 
   @override
   void initState() {
     super.initState();
+    GetIt.I.registerSingleton<AppRouter>(
+      AppRouter(navigatorKey: Context().navigatorKey, ref: ref),
+    );
+    UserManager.init(ref: ref);
     _registerEvents();
   }
 

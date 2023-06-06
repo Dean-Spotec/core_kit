@@ -27,9 +27,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CoreRoute.name: (routeData) {
+      final args = routeData.argsAs<CoreRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CorePage(),
+        child: CorePage(
+          key: args.key,
+          onOpenDrawer: args.onOpenDrawer,
+        ),
       );
     },
     IsolateRoute.name: (routeData) {
@@ -38,10 +42,33 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const IsolatePage(),
       );
     },
+    RegisterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegisterPage(),
+      );
+    },
     UserAuthRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: UserAuthPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: LoginPage(
+          key: args.key,
+          onLoginSuccess: args.onLoginSuccess,
+        ),
+      );
+    },
+    UserInfoRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UserInfoPage(),
       );
     },
     RefreshRoute.name: (routeData) {
@@ -80,21 +107,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TabPage(),
       );
     },
-    RegisterRoute.name: (routeData) {
+    MineRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const RegisterPage(),
+        child: const MinePage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
+    DrawerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: LoginPage(
-          key: args.key,
-          onLoginSuccess: args.onLoginSuccess,
-        ),
+        child: const UserDrawerPage(),
       );
     },
   };
@@ -140,16 +162,39 @@ class WebViewRouteArgs {
 
 /// generated route for
 /// [CorePage]
-class CoreRoute extends PageRouteInfo<void> {
-  const CoreRoute({List<PageRouteInfo>? children})
-      : super(
+class CoreRoute extends PageRouteInfo<CoreRouteArgs> {
+  CoreRoute({
+    Key? key,
+    required void Function() onOpenDrawer,
+    List<PageRouteInfo>? children,
+  }) : super(
           CoreRoute.name,
+          args: CoreRouteArgs(
+            key: key,
+            onOpenDrawer: onOpenDrawer,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CoreRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CoreRouteArgs> page = PageInfo<CoreRouteArgs>(name);
+}
+
+class CoreRouteArgs {
+  const CoreRouteArgs({
+    this.key,
+    required this.onOpenDrawer,
+  });
+
+  final Key? key;
+
+  final void Function() onOpenDrawer;
+
+  @override
+  String toString() {
+    return 'CoreRouteArgs{key: $key, onOpenDrawer: $onOpenDrawer}';
+  }
 }
 
 /// generated route for
@@ -167,6 +212,20 @@ class IsolateRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [RegisterPage]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [UserAuthPage]
 class UserAuthRoute extends PageRouteInfo<void> {
   const UserAuthRoute({List<PageRouteInfo>? children})
@@ -176,6 +235,57 @@ class UserAuthRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'UserAuthRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    Key? key,
+    void Function()? onLoginSuccess,
+    List<PageRouteInfo>? children,
+  }) : super(
+          LoginRoute.name,
+          args: LoginRouteArgs(
+            key: key,
+            onLoginSuccess: onLoginSuccess,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({
+    this.key,
+    this.onLoginSuccess,
+  });
+
+  final Key? key;
+
+  final void Function()? onLoginSuccess;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key, onLoginSuccess: $onLoginSuccess}';
+  }
+}
+
+/// generated route for
+/// [UserInfoPage]
+class UserInfoRoute extends PageRouteInfo<void> {
+  const UserInfoRoute({List<PageRouteInfo>? children})
+      : super(
+          UserInfoRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserInfoRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -265,52 +375,29 @@ class TabRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [RegisterPage]
-class RegisterRoute extends PageRouteInfo<void> {
-  const RegisterRoute({List<PageRouteInfo>? children})
+/// [MinePage]
+class MineRoute extends PageRouteInfo<void> {
+  const MineRoute({List<PageRouteInfo>? children})
       : super(
-          RegisterRoute.name,
+          MineRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'RegisterRoute';
+  static const String name = 'MineRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    Key? key,
-    void Function()? onLoginSuccess,
-    List<PageRouteInfo>? children,
-  }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
-            key: key,
-            onLoginSuccess: onLoginSuccess,
-          ),
+/// [UserDrawerPage]
+class DrawerRoute extends PageRouteInfo<void> {
+  const DrawerRoute({List<PageRouteInfo>? children})
+      : super(
+          DrawerRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'LoginRoute';
+  static const String name = 'DrawerRoute';
 
-  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
-}
-
-class LoginRouteArgs {
-  const LoginRouteArgs({
-    this.key,
-    this.onLoginSuccess,
-  });
-
-  final Key? key;
-
-  final void Function()? onLoginSuccess;
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key, onLoginSuccess: $onLoginSuccess}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

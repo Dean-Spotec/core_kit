@@ -5,15 +5,16 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../route/app_router.dart';
 import '../../../route/remote_router.dart';
 
-class RouteSection extends StatelessWidget {
+class RouteSection extends ConsumerWidget {
   const RouteSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return CupertinoListSection(
       header: const Text('路由'),
       children: [
@@ -44,9 +45,9 @@ class RouteSection extends StatelessWidget {
           },
         ),
         CupertinoListTile(
-          title: const Text('Present登录模块'),
+          title: const Text('打开用户信息页面(拦截器功能)'),
           onTap: () {
-            context.pushRoute(const UserAuthRoute());
+            context.pushRoute(const UserInfoRoute());
           },
         ),
       ],

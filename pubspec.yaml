@@ -21,7 +21,7 @@ dependencies:
   # 网络状态
   connectivity_plus: ^3.0.3
   # 各种弹窗功能：hud、toast、dialog
-  flutter_smart_dialog: ^4.8.2+4
+  flutter_smart_dialog: ^4.9.1
   # 网页
   webview_flutter: ^4.0.5
   # 网络图片

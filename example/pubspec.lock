@@ -398,10 +398,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_smart_dialog
-      sha256: ab1dccf481ab0a353861e46a841fe47228cf4dc0c211d9cb8ebac007cfdcd29a
+      sha256: "4685dfdfef91af0aded3c685dbff4188cdf1b279f5ea5c7d9c434d5def535350"
       url: "https://pub.dev"
     source: hosted
-    version: "4.8.2+4"
+    version: "4.9.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
