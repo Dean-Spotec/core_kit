@@ -11,26 +11,26 @@ dependencies:
   flutter:
     sdk: flutter
   # 集合类强化
-  collection: ^1.17.0
+  collection: 1.17.2
   # 国际化
-  intl: ^0.17.0
+  intl: ^0.18.1
   # 精度字符串
-  decimal: ^2.3.2
+  decimal: ^2.3.3
   # 简单的本地存储
-  shared_preferences: ^2.0.17
+  shared_preferences: ^2.2.1
   # 网络状态
-  connectivity_plus: ^3.0.3
+  connectivity_plus: ^5.0.0
   # 各种弹窗功能：hud、toast、dialog
-  flutter_smart_dialog: ^4.9.1
+  flutter_smart_dialog: ^4.9.4
   # 网页
-  webview_flutter: ^4.0.5
+  webview_flutter: ^4.4.1
   # 网络图片
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lint: ^2.0.20
+  lint: ^2.1.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

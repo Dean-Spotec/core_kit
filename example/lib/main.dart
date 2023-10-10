@@ -15,6 +15,9 @@ import 'generated/l10n.dart';
 import 'my_app.dart';
 import 'r.dart';
 
+// 使用flutter run --no-enable-impeller解决新版本flutter在iOS模拟器上运行卡顿的问题
+// https://github.com/flutter/flutter/issues/128391
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpStorage.init();

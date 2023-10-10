@@ -52,7 +52,7 @@ class Hud {
     SmartAnimationType? animationType,
     HudLoadingBuilder? loadingBuilder,
   }) async {
-    await dismiss();
+    dismiss();
     final builder = loadingBuilder ?? _loadingBuilder;
     return SmartDialog.showLoading(
       msg: msg ?? 'Loading...',
@@ -69,7 +69,7 @@ class Hud {
     Duration? displayTime,
     HudStatusBuilder? successBuilder,
   }) async {
-    await dismiss();
+    dismiss();
     final builder = successBuilder ?? _successBuilder;
     return SmartDialog.showLoading(
       msg: msg,
@@ -88,7 +88,7 @@ class Hud {
     Duration? displayTime,
     HudStatusBuilder? errorBuilder,
   }) async {
-    await dismiss();
+    dismiss();
     final builder = errorBuilder ?? _errorBuilder;
     return SmartDialog.showLoading(
       msg: msg,
@@ -107,7 +107,7 @@ class Hud {
     Duration? displayTime,
     HudStatusBuilder? infoBuilder,
   }) async {
-    await dismiss();
+    dismiss();
     final builder = infoBuilder ?? _infoBuilder;
     return SmartDialog.showLoading(
       msg: msg,
